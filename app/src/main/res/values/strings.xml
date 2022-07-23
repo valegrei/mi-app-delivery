@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Practica 04</string>
+    <string name="app_name">Mi App Delivery</string>
+    <string name="descr">comida</string>
+    <string name="title_menu">Menu</string>
 </resources>
