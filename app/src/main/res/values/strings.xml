@@ -2,7 +2,7 @@
     <string name="app_name">Mi App Delivery</string>
     <string name="descr">comida</string>
     <string name="title_menu">Menu</string>
-    <string name="title_orden">Ordenar</string>
+    <string name="title_orden">Pedido</string>
     <string name="text_cantidad">Cantidad de platos:</string>
     <string name="text_destinatario">Nombre de Destinatario:</string>
     <string name="text_visa">Visa</string>
@@ -16,6 +16,8 @@
     <string name="dialog_msg">Su pedido es:\nPlato: %1$s\nCantidad: %2$s\nDestinatario: %3$s\nDireccion: %4$s\nPago: %5$s\n\n¿Confirma su pedido o continua en el formulario?</string>
     <string name="yes">Confirmar</string>
     <string name="no">Seguir</string>
+    <string name="text_2_destinatario">Destinatario</string>
+    <string name="text_2_direccion">Dirección</string>
 
     <string-array name="cantidades">
         <item>1</item>

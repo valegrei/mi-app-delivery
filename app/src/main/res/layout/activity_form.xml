@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@color/gold"
     android:id="@+id/linear_layaout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FormActivity">
@@ -14,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp"
@@ -33,59 +35,76 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:layout_marginBottom="16dp"
         tools:text="Un Rico aji de gallina" />
     <LinearLayout
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_marginBottom="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:textSize="20sp"
+            android:textColor="@color/black"
             android:layout_weight="1"
             android:text="@string/text_cantidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
         <Spinner
-            android:textSize="20sp"
-            android:layout_weight="0"
             android:id="@+id/sp_cantidad"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="48dp"
+            android:layout_weight="0"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:text="@string/text_destinatario" />
 
     <EditText
-        android:layout_marginBottom="16dp"
         android:id="@+id/edt_destinatario"
         android:layout_width="match_parent"
-        android:hint="@string/text_destinatario"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:autofillHints="name"
+        android:hint="@string/text_2_destinatario"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/color_hint"
+        android:minHeight="48dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:text="@string/text_direccion" />
 
     <EditText
-        android:layout_marginBottom="16dp"
         android:id="@+id/edt_direccion"
         android:layout_width="match_parent"
-        android:hint="@string/text_direccion"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:autofillHints="postalAddress"
+        android:hint="@string/text_2_direccion"
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        android:textColorHint="@color/color_hint" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:textColor="@color/black"
         android:text="@string/text_metodo_pago" />
     <RadioGroup
         android:layout_marginBottom="16dp"
@@ -96,6 +115,7 @@
             android:textSize="20sp"
             android:layout_weight="1"
             android:id="@+id/rb_visa"
+            android:textColor="@color/black"
             android:text="@string/text_visa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -104,13 +124,14 @@
             android:layout_weight="1"
             android:id="@+id/rb_efectivo"
             android:text="@string/text_efectivo"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RadioGroup>
 
     <Button
         android:id="@+id/btn_enviar"
-        android:text="@string/text_enviar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="@string/text_enviar" />
 </LinearLayout>

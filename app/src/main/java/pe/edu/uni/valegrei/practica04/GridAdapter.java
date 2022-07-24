@@ -12,11 +12,9 @@ import android.widget.TextView;
 import java.util.List;
 
 public class GridAdapter extends BaseAdapter {
-    Context context;
-    List<Plato> platos;
+    private List<Plato> platos;
 
-    public GridAdapter(Context context, List<Plato> platos) {
-        this.context = context;
+    public GridAdapter(List<Plato> platos) {
         this.platos = platos;
     }
 

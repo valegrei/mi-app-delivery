@@ -1,5 +1,6 @@
 package pe.edu.uni.valegrei.practica04;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,7 +22,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class FormActivity extends AppCompatActivity {
     public static final String PLATO_NOMBRE = "plato_nombre";
     public static final String PLATO_IMAGEN = "plato_imagen";
-    public static final String PLATO_DESCRIP = "plato_nombre";
+    public static final String PLATO_DESCRIP = "plato_descr";
 
     String platoNombre, platoDescrip;
     Integer platoImagen;
@@ -37,12 +38,14 @@ public class FormActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     ArrayAdapter<CharSequence> adapter;
     boolean isNuevo = false;
+    boolean salir = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
 
+        //Titulo
         setTitle(R.string.title_orden);
 
         tvTitulo = findViewById(R.id.tv_titulo);
@@ -71,16 +74,16 @@ public class FormActivity extends AppCompatActivity {
 
         cargarDatos();
 
-        btnEnviar.setOnClickListener(v->enviar());
+        btnEnviar.setOnClickListener(v -> enviar());
     }
 
-    private void enviar(){
+    private void enviar() {
         String cantidad = (String) spCantidad.getSelectedItem();
         String destinatario = edtDestinatario.getText().toString().trim();
         String direccion = edtDireccion.getText().toString().trim();
         boolean isVisa = rbVisa.isChecked();
         boolean isEfectivo = rbEfectivo.isChecked();
-        if(destinatario.isEmpty() || direccion.isEmpty() || (!isVisa && !isEfectivo) ){
+        if (destinatario.isEmpty() || direccion.isEmpty() || (!isVisa && !isEfectivo)) {
             Snackbar.make(linearLayout, R.string.msg_snackbar, Snackbar.LENGTH_INDEFINITE)
                     .setAction(R.string.button_snackbar_text, v1 -> {
 
@@ -94,6 +97,8 @@ public class FormActivity extends AppCompatActivity {
         builder.setCancelable(false);
         builder.setMessage(getString(R.string.dialog_msg, platoNombre, cantidad, destinatario, direccion, pago));
         builder.setPositiveButton(R.string.yes, (dialog, which) -> {
+            salir = true;
+            limpiarDatos();
             //Salir del aplicativo
             moveTaskToBack(true);
             android.os.Process.killProcess(android.os.Process.myPid());
@@ -142,29 +147,34 @@ public class FormActivity extends AppCompatActivity {
     private static final String EFECTIVO_KEY = "efectivo";
 
     private void guardarDatos() {
-        sharedPreferences = getSharedPreferences("saveData", Context.MODE_PRIVATE);
-        int cantPos = spCantidad.getSelectedItemPosition();
-        String destinatario = edtDestinatario.getText().toString().trim();
-        String direccion = edtDireccion.getText().toString().trim();
-        boolean isVisa = rbVisa.isChecked();
-        boolean isEfectivo = rbEfectivo.isChecked();
+        if (!salir) {
+            sharedPreferences = getSharedPreferences("saveData", Context.MODE_PRIVATE);
+            int cantPos = spCantidad.getSelectedItemPosition();
+            String destinatario = edtDestinatario.getText().toString().trim();
+            String direccion = edtDireccion.getText().toString().trim();
+            boolean isVisa = rbVisa.isChecked();
+            boolean isEfectivo = rbEfectivo.isChecked();
 
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(PLATO_NOMBRE, platoNombre);
-        editor.putString(PLATO_DESCRIP, platoDescrip);
-        editor.putInt(PLATO_IMAGEN, platoImagen);
+            editor.putString(PLATO_NOMBRE, platoNombre);
+            editor.putString(PLATO_DESCRIP, platoDescrip);
+            editor.putInt(PLATO_IMAGEN, platoImagen);
 
-        editor.putInt(CANT_POS_KEY, cantPos);
-        editor.putString(DESTINATARIO_KEY, destinatario);
-        editor.putString(DIRECCION_KEY, direccion);
-        editor.putBoolean(VISA_KEY, isVisa);
-        editor.putBoolean(EFECTIVO_KEY, isEfectivo);
-        editor.apply();
+            editor.putInt(CANT_POS_KEY, cantPos);
+            editor.putString(DESTINATARIO_KEY, destinatario);
+            editor.putString(DIRECCION_KEY, direccion);
+            editor.putBoolean(VISA_KEY, isVisa);
+            editor.putBoolean(EFECTIVO_KEY, isEfectivo);
+            editor.apply();
+        }
     }
 
-    private void limpiarDatos(){
+    @SuppressLint("ApplySharedPref")
+    private void limpiarDatos() {
         sharedPreferences = getSharedPreferences("saveData", Context.MODE_PRIVATE);
-        sharedPreferences.edit().clear().apply();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.commit();
     }
 }
