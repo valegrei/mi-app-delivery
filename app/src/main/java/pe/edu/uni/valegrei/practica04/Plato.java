@@ -1,7 +1,7 @@
 package pe.edu.uni.valegrei.practica04;
 
 public class Plato {
-    private Integer resId;
+    private int resId;
     private String titulo;
     private String descripcion;
 
@@ -14,7 +14,7 @@ public class Plato {
         this.descripcion = descripcion;
     }
 
-    public Integer getResId() {
+    public int getResId() {
         return resId;
     }
 

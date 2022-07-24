@@ -2,4 +2,6 @@
     <string name="app_name">Mi App Delivery</string>
     <string name="descr">comida</string>
     <string name="title_menu">Menu</string>
+    <string name="title_orden">Ordenar</string>
+    <string name="text_cantidad">Cantidad de platos:</string>
 </resources>
