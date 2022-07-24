@@ -4,4 +4,17 @@
     <string name="title_menu">Menu</string>
     <string name="title_orden">Ordenar</string>
     <string name="text_cantidad">Cantidad de platos:</string>
+    <string name="text_destinatario">Nombre de Destinatario:</string>
+    <string name="text_visa">Visa</string>
+    <string name="text_efectivo">Efectivo</string>
+    <string name="text_metodo_pago">Forma de pago:</string>
+    <string name="text_direccion">Dirección de Destinatario</string>
+    <string name="text_enviar">Enviar Pedido</string>
+
+    <string-array name="cantidades">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>
