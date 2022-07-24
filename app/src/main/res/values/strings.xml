@@ -10,6 +10,12 @@
     <string name="text_metodo_pago">Forma de pago:</string>
     <string name="text_direccion">Dirección de Destinatario</string>
     <string name="text_enviar">Enviar Pedido</string>
+    <string name="msg_snackbar">Por favor, complete los datos antes.</string>
+    <string name="button_snackbar_text">Entendido</string>
+    <string name="dialog_title">Confirmar</string>
+    <string name="dialog_msg">Su pedido es:\nPlato: %1$s\nCantidad: %2$s\nDestinatario: %3$s\nDireccion: %4$s\nPago: %5$s\n\n¿Confirma su pedido o continua en el formulario?</string>
+    <string name="yes">Confirmar</string>
+    <string name="no">Seguir</string>
 
     <string-array name="cantidades">
         <item>1</item>
